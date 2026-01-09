@@ -1,0 +1,17 @@
+.header {
+    background-color: rgb(189, 50, 119);
+    /* border-bottom: 2px solid yellow; */
+
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+}
+
+a:focus {
+    color: rgb(255, 255, 255);
+}

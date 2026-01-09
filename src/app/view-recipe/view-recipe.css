@@ -1,0 +1,113 @@
+section {
+    background-color: rgb(255, 229, 246);
+
+}
+
+button {
+    margin: 30px;
+    background-color: rgb(255, 211, 229);
+    height: 45px;
+    width: 180px;
+    border: 1px solid rgb(208, 144, 171);
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: rgb(255, 198, 222);
+    border: 0;
+    box-shadow: 2px 2px 8px rgb(210, 151, 193);
+    transition: 0.3s;
+}
+
+button:active {
+    background-color: rgb(255, 211, 229);
+    border: 1px solid rgb(208, 144, 171);
+    transition: 0.1s;
+
+
+}
+
+.vr1 {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.b1,
+.b2 {
+    height: 45px;
+    width: 200px;
+    border-radius: 4px;
+
+}
+
+.b1 {
+    background-color: rgb(221, 62, 142);
+    color: aliceblue;
+}
+
+.b1:hover {
+    background-color: rgb(255, 146, 200);
+    color: black;
+    border: 0;
+    box-shadow: 2px 2px 8px rgb(137, 80, 121);
+    transition: 0.3s;
+}
+
+.b1:active {
+    background-color: rgb(244, 94, 156);
+    border: 1px solid rgb(208, 144, 171);
+    transition: 0.1s;
+}
+
+.b2 {
+    background-color: rgb(0, 111, 35);
+    color: aliceblue;
+}
+
+
+.b2:hover {
+    background-color: rgb(78, 224, 124);
+    color: black;
+    border: 0;
+    box-shadow: 2px 2px 8px rgb(6, 83, 30);
+    transition: 0.3s;
+}
+
+.b2:active {
+    background-color: rgb(29, 195, 82);
+    border: 1px solid rgb(112, 209, 142);
+    transition: 0.1s;
+}
+
+.vr1 img {
+    border: 1px solid rgb(255, 201, 210);
+    border-radius: 7px;
+}
+
+.c2 {
+    display: flex;
+    justify-items: start;
+    margin-left: 120px;
+    padding-bottom: 50px;
+
+}
+
+.card1 {
+    text-align: center;
+    background-color: rgb(251, 245, 249);
+    /* width: 200px; */
+
+}
+
+.card1 img {
+    width: 150px;
+    padding: 10px;
+
+}
+
+h4{
+    margin-left: 100px;
+    padding: 20px;
+    color: rgb(116, 0, 62);
+}
