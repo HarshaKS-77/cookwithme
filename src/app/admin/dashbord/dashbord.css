@@ -1,0 +1,33 @@
+.head {
+    background-color: rgb(246, 111, 178);
+    width: 100%;
+}
+
+
+.c {
+    
+    margin: 10px;
+    width: 230px;
+    border-radius: 2px;
+    color: aliceblue;
+    text-align: center;
+    font-size: 20px;
+    padding: 30px;
+}
+
+.c1 {
+    background-color: rgb(11, 76, 76);
+
+}
+.c2 {
+    background-color: rgb(76, 23, 11);
+
+}
+.c3 {
+    background-color: rgb(26, 11, 76);
+
+}
+.c4 {
+    background-color: rgb(75, 11, 76);
+
+}

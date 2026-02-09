@@ -8,29 +8,26 @@
         </div>
         <div>
             <h2 class="text-center p-4 m-4">Downloaded Recipes List</h2>
-            <div class="c2">
-                <div class="card1">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
+            @if (downloadedRecipes.length > 0) {
+            <div class="row">
+                @for (item of downloadedRecipes; track $index) {
+                <div class="card1 col-3">
+                    <img [src]=item.image width="100%"
                         class="" alt="">
                     <div class="card-body">
-                        <p class="card-text">Title</p>
+                        <p class="m-0">{{item.name}}</p>
+                        <p class="m-0">{{item.cuisine}}</p>
+                        <p class="m-0">Servings : {{item.servings}}</p>
                     </div>
                 </div>
-                <div class="card1">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                        class="" alt="">
-                    <div class="card-body">
-                        <p class="card-text">Title</p>
-                    </div>
-                </div>
-                <div class="card1">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                        class="" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Title</p>
-                    </div>
-                </div>
+                }
+               
             </div>
+            }
+            @else {
+            <p class="text-center fs-5 text-danger">No Downloaded Recipes....</p>
+            }
+
         </div>
     </div>
 </section>

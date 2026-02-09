@@ -1,14 +1,17 @@
 <app-header></app-header>
 <section>
-    <div class="class1">
-        <h4>Login</h4>
-        <input type="text" placeholder="username" name="" id="">
-        <input type="text" placeholder="email" name="" id="">
-        <input type="text" placeholder="Password" name="" id="">
-        <input type="text" placeholder="confirm Password" name="" id="">
-        <button type="button">Login</button>
+    <!-- ReactiveFormsModule : 5) controll passes through Html page -->
+    <!-- control define -->
+    <form [formGroup]="registerForm" class="class1">
+        <h4>Register</h4>
+        <!-- form control name define -->
+        <input formControlName="username" type="text" placeholder="username" name="" id="">
+        <input formControlName="email" type="text" placeholder="email" name="" id="">
+        <input formControlName="password" type="text" placeholder="Password" name="" id="">
+        <input formControlName="password" type="text" placeholder="confirm Password" name="" id="">
+        <button (click)="register()" type="button">SignUp</button>
         <div class="divider"></div>
-        <p>New to here ? Register Now</p>
-    </div>
+        <p>Already have an account ? Login Now</p>
+    </form>
 </section>
 <app-footer></app-footer>

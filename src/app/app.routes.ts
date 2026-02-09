@@ -11,6 +11,12 @@ import { Profile } from './profile/profile';
 import { Login } from './login/login';
 
 export const routes: Routes = [
+
+    //lazy loadded module :  // http://localhost:4200/admin/
+    {
+        path: 'admin',loadChildren:()=>import('./admin/admin-module').then(m=>m.AdminModule)
+    },
+
     {
         path: '', component: LandigPage
     },
@@ -30,10 +36,10 @@ export const routes: Routes = [
         path: 'all-recipes', component: Recipes
     },
     {
-        path: 'saved-recipies', component: SavedRecipe
+        path: 'Saved-recipies', component: SavedRecipe
     },
     {
-        path: 'view-recipie', component: ViewRecipe
+        path: 'view-recipie/:id', component: ViewRecipe
     },
     {
         path: 'profile', component: Profile

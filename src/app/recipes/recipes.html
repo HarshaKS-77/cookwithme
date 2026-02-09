@@ -5,52 +5,35 @@
     <div class="R1">
         <div class="Filter">
             <h5>Filter</h5>
-            <p>All</p>
-            <select name="cuisine-type" id="">
+            <p class="cursor-pointer" (click)="getAllRecipes()">All</p>
+            <select (change)="filterRecipe('cuisine',$event)" name="cuisine-type" id="">
                 <option value="" hidden>Cuisine Type</option>
-                <option value="Korean">Korean</option>
-                <option value="Indian">Indian</option>
-                <option value="chines">chines</option>
-                <option value="Italian">Italian</option>
-                <option value="Japanese">Japanese</option>
+                @for (item of cuisineType; track $index) {
+                <option [value]=item>{{item}}</option>
+                }
             </select>
-            <select name="cuisine-type" id="">
+            <select (change)="filterRecipe('mealType',$event)" name="meal-type" id="">
                 <option value="" hidden>Meal Type</option>
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Dinner">Dinner</option>
-                <option value="Snacks">Snacks</option>
-                <option value="Tea">Tea</option>
-                <option value="Juice">Juice</option>
-                <option value="Shake">Shake</option>
+                @for (item of mealtype; track $index) {
+                <option [value]=item>{{item}}</option>
+                }
             </select>
+
         </div>
 
         <div class="section2">
             <h1>All Recipes</h1>
 
-            <div class="c2">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                        class="card-img-top" alt="">
+            <div class=" row c2 ">
+                @for (item of allRecipes | paginate: { itemsPerPage: 6, currentPage: p } ; track $index) {
+                <div (click)="viewARecipe(item._id)" class="card" style="width: 18rem;">
+                    <img [src]=item.image class="card-img-top" alt="">
                     <div class="card-body">
-                        <p class="card-text">Title</p>
+                        <p class="card-text">{{item.name}}</p>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                        class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="card-text">Title</p>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Title</p>
-                    </div>
-                </div>
+                }
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
     </div>

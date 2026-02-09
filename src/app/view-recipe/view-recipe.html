@@ -1,47 +1,39 @@
 <app-header></app-header>
 <section>
-    <button type="button"><i class="fa-solid fa-arrow-left"></i>Back to recipe list</button>
+    <button routerLink="/all-recipes" type="button"><i class="fa-solid fa-arrow-left"></i>Back to recipe list</button>
     <div class="vr1">
         <div>
-            <img width="500px" height="400px"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-kJ8Jpe5ji-pkgRrUhS0TM046Kn-eDU8J4g&s"
-                alt="" srcset="">
+            <img width="500px" height="400px" [src]='recipe.image' alt="" srcset="">
             <div class="vr1">
-                <button class="b1" type="button">Save Recipe</button>
-                <button class="b2" type="button">Download Recipe</button>
+                <button (click)="saveRecipe(recipe._id,recipe.name,recipe.image)" class="b1" type="button">Save
+                    Recipe</button>
+                <button (click)="addToDownloadRecipe(recipe._id,recipe)" class="b2" type="button">Download Recipe</button>
             </div>
         </div>
         <div>
-            <h1>Title</h1>
+            <h1>{{recipe.name}}</h1>
             <div class="vr1">
-                <h6>Cuisine :Mexican</h6>
-                <h6>Servings : 3</h6>
-                <h6>Mode of Cooking : Easy</h6>
+                <h6>Cuisine :{{recipe.cuisine}}</h6>
+                <h6>Servings : {{recipe.servings}}</h6>
+                <h6>Mode of Cooking : {{recipe.difficulty}}</h6>
             </div>
             <div class="vr1">
-                <h6>Preparation Time : 15</h6>
-                <h6>Calorie Per Servings : 380</h6>
-                <h6>Cooking Time :25</h6>
+                <h6>Preparation Time : {{recipe.prepTimeMinutes}}/m</h6>
+                <h6>Calorie : {{recipe.caloriesPerServing}}</h6>
+                <h6>Cooking Time :{{recipe.cookTimeMinutes}}/m</h6>
             </div>
             <h3>Ingredients Needed</h3>
             <ol>
-                <li>Chicken thighs</li>
-                <li>Mango, diced</li>
-                <li>Red onion, finely chopped</li>
-                <li>Cilantro, chopped</li>
-                <li>Lime juice</li>
-                <li>Jalapeño, minced</li>
-                <li>Salt and pepper to taste</li>
-                <li>Cooked rice for serving</li>
+                @for (item of recipe.ingredients; track $index) {
+                <li>{{item}}</li>
+                }
             </ol>
             <h3>Cooking Instruction</h3>
 
             <ol>
-                <li>Season chicken thighs with salt and pepper.</li>
-                <li>Grill or bake chicken until fully cooked.</li>
-                <li>In a bowl, combine diced mango, chopped red onion, cilantro, minced jalapeño, and lime juice.</li>
-                <li>Dice the cooked chicken and mix it with the mango salsa.</li>
-                <li>Serve over cooked rice.</li>
+                @for (item of recipe.instructions; track $index) {
+                <li>{{item}}</li>
+                }
             </ol>
 
         </div>
@@ -49,27 +41,18 @@
     <h4>Related Recipes</h4>
 
     <div class="c2">
-        <div class="card1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                class="" alt="">
+        @for (item of relatedRecipe; track $index) {
+        @if (item.name !== recipe.name) {
+        <div (click)="viewARelatedRecipe(item._id)" class="card1">
+            <img [src]=item.image class="" alt="">
             <div class="card-body">
-                <p class="card-text">Title</p>
+                <p class="card-text">{{item.name}}</p>
             </div>
         </div>
-        <div class="card1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                class="" alt="">
-            <div class="card-body">
-                <p class="card-text">Title</p>
-            </div>
-        </div>
-        <div class="card1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6ghC4OB1yk7uqJoEupPCdoFFfYecE5J_UQ&s"
-                class="" alt="...">
-            <div class="card-body">
-                <p class="card-text">Title</p>
-            </div>
-        </div>
+        }
+
+        }
+
     </div>
 </section>
 
